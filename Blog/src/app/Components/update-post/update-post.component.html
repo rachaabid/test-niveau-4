@@ -1,0 +1,63 @@
+<div class="container">
+  <h1>Modifier</h1>
+
+  <form class="mt-3" *ngIf="postForm" [formGroup]="postForm">
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="titre">Titre</label>
+        <input type="text" class="form-control" placeholder="Post" formControlName="titre"
+          [ngClass]="{'is-invalid': submitted && postForm.get('titre')?.errors, 'is-valid': submitted && !postForm.get('titre')?.errors}">
+        <div class="d-block invalid-feedback" *ngIf="submitted && postForm.get('titre')?.errors?.['required']">
+          Le titre est obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" placeholder="Description"
+          formControlName="description"
+          [ngClass]="{'is-invalid': submitted && postForm.get('description')?.errors, 'is-valid': submitted && !postForm.get('description')?.errors}">
+        <div class="d-block invalid-feedback" *ngIf="submitted && postForm.get('description')?.errors?.['required']">
+          Description est obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="Categorie">Categorie</label>
+        <select type="text" class="form-control" formControlName="categorie"
+          [ngClass]="{'is-invalid': submitted && postForm.get('categorie')?.errors, 'is-valid': submitted && !postForm.get('categorie')?.errors}">
+
+          <select>Select Categorie</select>
+          <option value="Sport">Sport</option>
+          <option value="Technologies">Technologies</option>
+          <option value="Economie">Economie</option>
+          <option value="Société">Société</option>
+          <option value="Culture">Culture</option>
+        </select>
+
+        <div class="d-block invalid-feedback" *ngIf="submitted && postForm.get('categorie')?.errors?.['required']">
+          Categorie est obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" placeholder="Date"
+          formControlName="date"
+          [ngClass]="{'is-invalid': submitted && postForm.get('date')?.errors, 'is-valid': submitted && !postForm.get('date')?.errors}">
+        <div class="d-block invalid-feedback" *ngIf="submitted && postForm.get('date')?.errors?.['required']">
+          Date est obligatoire
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="enregistrerModification()">Enregistrer</button>
+  </form>
+</div>
+

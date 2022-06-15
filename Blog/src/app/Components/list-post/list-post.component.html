@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="text-center text-danger">Liste</h1>
+  <div class="form-group">
+   
+  <button type="button" class="btn btn-primary" routerLink="/AddPost">Ajouter</button>
+    <table class="table table-bordered table-sm">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>titre</th>
+          <th>Description</th>
+          <th>Categorie</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of listPost; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{post.titre}}</td>
+          <td>{{post.description}}</td>
+          <td>{{post.categorie}}</td>
+          <td>{{post.date}}</td>
+          <td>
+            <button type="button" class="btn btn-success" routerLink="/UpdatePost/{{i}}">Modifier</button>
+            <button type="button" class="btn btn-danger" (click)="supprimePost(i)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+

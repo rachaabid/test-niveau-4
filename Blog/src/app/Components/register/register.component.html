@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="text-center text-primary">Créer votre compte</h2>
+  <form class="row g-3 mt-4" *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="ajouterUser()">
+    <div class="form-group">
+      <label for="firstName">Nom: </label>
+      <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
+        [ngClass]="{'is-invalid': submitted && userForm.get('firstName')?.errors, 'is-valid': submitted && !userForm.get('firstName')?.errors}">
+      <div class="d-block invalid-feedback" *ngIf="submitted && userForm.get('firstName')?.errors?.['required']">
+        Nom est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Prénom:</label>
+      <input class="form-control" type="text" formControlName="lastName" placeholder="Last Name"
+        [ngClass]="{'is-invalid': submitted && userForm.get('lastName')?.errors, 'is-valid': submitted && !userForm.get('lastName')?.errors}">
+      <div class="d-block invalid-feedback" *ngIf="submitted && userForm.get('lastName')?.errors?.['required']">
+       Prénom est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control" type="text" formControlName="email" placeholder="Email"
+        [ngClass]="{'is-invalid': submitted && userForm.get('email')?.errors, 'is-valid': submitted && !userForm.get('email')?.errors}">
+      <div class="d-block invalid-feedback" *ngIf="submitted && userForm.get('email')?.errors?.['required']">
+        Email est obligatoire
+      </div>
+      <div class="d-block invalid-feedback" *ngIf="submitted && userForm.get('email')?.errors?.['email']">
+        Email iest obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mot de passe: </label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password"
+        [ngClass]="{'is-invalid': submitted && userForm.get('password')?.errors, 'is-valid': submitted && !userForm.get('password')?.errors}">
+      <div class="d-block invalid-feedback" *ngIf="submitted && userForm.get('password')?.errors?.['required']">
+        Mot de passe est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Confirmation Mot de passe: </label>
+      <input type="password" class="form-control" placeholder="Password" formControlName="confirmationPassword"
+        [ngClass]="{'is-invalid': submitted && userForm.get('password')?.errors, 'is-valid': submitted && !userForm.get('password')?.errors}">
+      <div class="d-block invalid-feedback" *ngIf="submitted && userForm.get('password')?.errors?.['required']">
+        Confirmation est obligatoire
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Ajouter Utilisateur</button>
+
+  </form>
+</div>
