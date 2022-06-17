@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(){
+    this.submitted = true;
+    if (this.userForm?.invalid){
+      return
+    } 
     this.auth.login();
   }
 

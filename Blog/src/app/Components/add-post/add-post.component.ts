@@ -14,7 +14,7 @@ export class AddPostComponent implements OnInit {
   postForm?: FormGroup;
   submitted = false;
 
-  constructor(private crud: CrudService, route: Router) { }
+  constructor(private crud: CrudService) { }
 
   ngOnInit(): void {
     this.postForm = new FormGroup ({
